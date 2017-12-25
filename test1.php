@@ -82,7 +82,7 @@ foreach($all as $value){
 		array_push($all_after,0);
 	else
 		array_push($all_after,$value/$total);
-		echo $value/$total;
+		#echo $value/$total;
 	}
 	
 	#$who放權重x分數,$temp占存用 
