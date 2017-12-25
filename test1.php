@@ -83,6 +83,7 @@ foreach($all as $value){
 	else
 		array_push($all_after,$value/$total);
 		#echo $value/$total;
+    #test
 	}
 	
 	#$who放權重x分數,$temp占存用 
