@@ -1,5 +1,5 @@
 ﻿<?php
-$dbhost = 'ip-172-31-16-11.ca-central-1.compute.internal';
+$dbhost = 'mysql.peterproject.svc';
 $dbuser = 'root';
 $dbpass = 'roottoor';
 $dbname = 'motorcycle';
