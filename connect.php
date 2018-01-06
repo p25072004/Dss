@@ -1,5 +1,5 @@
 ﻿<?php
-$dbhost = '10.129.45.137';
+$dbhost = '10.129.41.237';
 $dbuser = 'root';
 $dbpass = 'roottoor';
 $dbname = 'motorcycle';
