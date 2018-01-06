@@ -1,5 +1,5 @@
 ﻿<?php
-$dbhost = '10.129.41.237';
+$dbhost = 'ip-172-31-16-11.ca-central-1.compute.internal';
 $dbuser = 'root';
 $dbpass = 'roottoor';
 $dbname = 'motorcycle';
