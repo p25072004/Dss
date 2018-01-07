@@ -1,5 +1,5 @@
 ﻿<?php
-$dbhost = '10.129.45.137';
+$dbhost = 'mysql.peterproject.svc';
 $dbuser = 'root';
 $dbpass = 'roottoor';
 $dbname = 'motorcycle';
