@@ -168,12 +168,9 @@ while($row = @mysql_fetch_array($result)){
 echo "<table border='0' class=\"table table-striped\">";
 	//echo "<tr>"
 	//echo "<img src=\"/pic/".$row['pic'].".jpg\" />";
+echo "<td colspan=\"2\"><h3>第" . ($key + 1) . "名</h3></td>";
 echo "<tr>";
 echo "<td rowspan=\"18\" class=\"col-md-5\"><img src=\"./pic/".$row['pic'].".jpg\" width=\"320\" height=\"320\" /></td>";
-echo "<td>第".($key+1)."名</td>";
-echo "</tr>";
-
-echo "<tr>";
 echo "<td>車名:".$row['pic']."</td>";
 echo "</tr>";
 

@@ -69,7 +69,7 @@ $total=0;
 $all_after=array();
 
 	//$bicycle:每台車的分項分數
-$bicycle=array(0=>array(5,10,10,9,5),1=>array(3,0,6,3,3),2=>array(1,5,0,1,9),3=>array(3,0,3,2,6));
+$bicycle=array(0=>array(5,10,10,9,5),1=>array(3,0,4,3,3),2=>array(1,5,3,1,9),3=>array(3,0,5,2,6));
 
 	#加起來
 foreach($all as $value){
@@ -134,12 +134,11 @@ $result = @mysql_query($sql);
 while ($row = @mysql_fetch_array($result)) {
     // echo "<tr>"
     // echo "<img src=\"/pic/".$row['pic'].".jpg\" />";
-    echo "<tr style=\"display:none;\"></tr>";
     echo "<tr>";
     echo "<td colspan=\"2\"><h3>第" . ($key + 1) . "名</h3></td>";
     echo "</tr>";
     echo "<tr>";
-    echo "<td rowspan=\"6\" class=\"col-md-5\"><img src=\"./pic/" . $row['pic'] . ".jpg\" width=\"320\" height=\"320\" /></td>";
+    echo "<td rowspan=\"7\" class=\"col-md-5\"><img src=\"./pic/" . $row['pic'] . ".jpg\" width=\"320\" height=\"320\" /></td>";
     echo "<td>車名:" . $row['pic'] . "</td>";
     echo "</tr>";
     
@@ -151,6 +150,10 @@ while ($row = @mysql_fetch_array($result)) {
     echo "<td" . td_color($_POST["user_2"]) . ">煞車型式:" . $row['break'] . "</td>";
     echo "</tr>";
     
+    echo "<tr>";
+    echo "<td" . td_color($_POST["user_3"]) . ">電池續航力:" . $row['life'] . "</td>";
+    echo "</tr>";
+
     echo "<tr>";
     echo "<td" . td_color($_POST["user_4"]) . ">極速:" . $row['topspeed'] . "</td>";
     echo "</tr>";
