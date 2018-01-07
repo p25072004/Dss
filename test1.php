@@ -52,10 +52,10 @@
     </nav>
 
 
-  <body>
-<div  align="center" >  
+<body>
+	<div align="center" class="page-header table-responsive">  
 <?php include 'connect.php';?>
-<h1>Hello!</h1>
+<h1>給熱愛環保的您，最好的選擇!</h1>
 <?php
 
 	#接收使用者傳入權重,$all
@@ -122,62 +122,61 @@ $winner=array();
 	$who[$winner[2]-1]=-1;
 
 
+echo "<table border='0' class=\"table table-striped\">";
 //輸出資料庫
 foreach($winner as $key=>$value){
 $sql = "select * from electricity where id=\"$value\"  "; 
 
 /* 執行SQL statement */
-$result = @mysql_query($sql); 
-
-/* while 迴圈撈取資料 */
-echo "<table border='1'>";
-
-
-while($row = @mysql_fetch_array($result)){
-	//echo "<tr>"
-	//echo "<img src=\"/pic/".$row['pic'].".jpg\" />";
-echo "<tr>";
-echo "<td rowspan=\"7\"><img src=\"/pic/".$row['pic'].".jpg\" width=\"320\" height=\"320\" /></td>";
-echo "<td>第".($key+1)."名</td>";
-echo "</tr>";
-
-echo "<tr>";
-echo "<td>車名:".$row['pic']."</td>";
-echo "</tr>";
-
-echo "<tr>";
-echo "<td>重量:".$row['weight']."</td>";
-echo "</tr>";
-
-echo "<tr>";
-echo "<td>煞車型式:".$row['break']."</td>";
-echo "</tr>";
-
-echo "<tr>";
-echo "<td>極速:".$row['topspeed']."</td>";
-echo "</tr>";
-
-echo "<tr>";
-echo "<td>價錢:".$row['cost']."</td>";
-echo "</tr>";
-
-echo "<tr>";
-echo "<td>公司:".$row['company']."</td>";
-echo "</tr>";
-  //echo "<img src=\"/pic/vjr.jpg\" />";
-  echo "</table>";
+$result = @mysql_query($sql);
+        
+        /* while 迴圈撈取資料 */
+while ($row = @mysql_fetch_array($result)) {
+    // echo "<tr>"
+    // echo "<img src=\"/pic/".$row['pic'].".jpg\" />";
+    echo "<tr style=\"display:none;\"></tr>";
+    echo "<tr>";
+    echo "<td colspan=\"2\"><h3>第" . ($key + 1) . "名</h3></td>";
+    echo "</tr>";
+    echo "<tr>";
+    echo "<td rowspan=\"6\" class=\"col-md-5\"><img src=\"./pic/" . $row['pic'] . ".jpg\" width=\"320\" height=\"320\" /></td>";
+    echo "<td>車名:" . $row['pic'] . "</td>";
+    echo "</tr>";
+    
+    echo "<tr>";
+    echo "<td" . td_color($_POST["user_1"]) . ">重量:" . $row['weight'] . "</td>";
+    echo "</tr>";
+    
+    echo "<tr>";
+    echo "<td" . td_color($_POST["user_2"]) . ">煞車型式:" . $row['break'] . "</td>";
+    echo "</tr>";
+    
+    echo "<tr>";
+    echo "<td" . td_color($_POST["user_4"]) . ">極速:" . $row['topspeed'] . "</td>";
+    echo "</tr>";
+    
+    echo "<tr>";
+    echo "<td" . td_color($_POST["user_5"]) . ">價錢:" . $row['cost'] . "</td>";
+    echo "</tr>";
+    
+    echo "<tr>";
+    echo "<td>公司:" . $row['company'] . "</td>";
+    echo "</tr>";
+    //echo "<img src=\"/pic/vjr.jpg\" />";
 }
 
 
 }
+echo "</table>";
 
 @mysql_close($conn);
 
 ?>
 
-<br><a href="javascript:goBack()" class="btn btn-lg btn-dark">回到上一頁</a>
-</div>
-<!-- Services -->
+<br>
+		<a href="javascript:goBack()" class="btn btn-lg btn-dark">回到上一頁</a>
+	</div>
+	<!-- Services -->
     <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
     <section id="services" class="services bg-primary">
         <div class="container">
@@ -357,4 +356,12 @@ echo "</tr>";
 </body>
 
 </html>
-
+<?php 
+function td_color($key) {
+    $val = "";
+    if ($key > 0) {
+        $val = " class=\"info\"";
+    }
+    return $val;
+}
+?>

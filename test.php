@@ -52,10 +52,10 @@
     </nav>
 
 
-<div  align="center" >
-  <body>
+<body>
+	<div align="center" class="page-header table-responsive">
 <?php include 'connect.php';?>
-<h1>Hello!</h1>
+<h1>給您最好的選擇!</h1>
 <?php
 
 	#接收使用者傳入權重,$all
@@ -69,7 +69,7 @@ $all=array("$_POST[user_1]","$_POST[user_2]","$_POST[user_3]","$_POST[user_4]","
 */
 	#接收使用者車種,$style
 $style=$_POST['style'];
-echo $style;
+//echo $style;
 
 	#$total:權重相加變數
 $total=0;
@@ -154,7 +154,6 @@ elseif($style=='both'){
 	$winner[2]= array_search(max($who),$who)+1;
 	$who[$winner[2]-1]=-1;
 }
-
 //輸出資料庫
 foreach($winner as $key=>$value){
 $sql = "select * from motorcycles where id=\"$value\"  "; 
@@ -163,14 +162,14 @@ $sql = "select * from motorcycles where id=\"$value\"  ";
 $result = @mysql_query($sql); 
 
 /* while 迴圈撈取資料 */
-echo "<table border='1'>";
 
 
 while($row = @mysql_fetch_array($result)){
+echo "<table border='0' class=\"table table-striped\">";
 	//echo "<tr>"
 	//echo "<img src=\"/pic/".$row['pic'].".jpg\" />";
 echo "<tr>";
-echo "<td rowspan=\"18\"><img src=\"/pic/".$row['pic'].".jpg\" width=\"320\" height=\"320\" /></td>";
+echo "<td rowspan=\"18\" class=\"col-md-5\"><img src=\"./pic/".$row['pic'].".jpg\" width=\"320\" height=\"320\" /></td>";
 echo "<td>第".($key+1)."名</td>";
 echo "</tr>";
 
@@ -179,27 +178,27 @@ echo "<td>車名:".$row['pic']."</td>";
 echo "</tr>";
 
 echo "<tr>";
-echo "<td>排氣量:".$row['cc']."</td>";
+echo "<td".td_color($_POST["user_7"]).">排氣量:".$row['cc']."</td>";
 echo "</tr>";
 
 echo "<tr>";
-echo "<td>重量:".$row['weight']."</td>";
+echo "<td".td_color($_POST["user_1"]).">重量:".$row['weight']."</td>";
 echo "</tr>";
 
 echo "<tr>";
-echo "<td>輪胎大小:".$row['tier']."</td>";
+echo "<td".td_color($_POST["user_2"]).">輪胎大小:".$row['tier']."</td>";
 echo "</tr>";
 
 echo "<tr>";
-echo "<td>煞車型式:".$row['break']."</td>";
+echo "<td".td_color($_POST["user_3"]).">煞車型式:".$row['break']."</td>";
 echo "</tr>";
 
 echo "<tr>";
-echo "<td>馬力:".$row['hp']."</td>";
+echo "<td".td_color($_POST["user_4"]).">馬力:".$row['hp']."</td>";
 echo "</tr>";
 
 echo "<tr>";
-echo "<td>扭力:".$row['torque']."</td>";
+echo "<td".td_color($_POST["user_5"]).">扭力:".$row['torque']."</td>";
 echo "</tr>";
 
 echo "<tr>";
@@ -207,11 +206,11 @@ echo "<td>動力型式:".$row['power']."</td>";
 echo "</tr>";
 
 echo "<tr>";
-echo "<td>引擎:".$row['engine']."</td>";
+echo "<td".td_color($_POST["user_6"]).">引擎:".$row['engine']."</td>";
 echo "</tr>";
 
 echo "<tr>";
-echo "<td>油耗:".$row['oilwaste']."</td>";
+echo "<td".td_color($_POST["user_8"]).">油耗:".$row['oilwaste']."</td>";
 echo "</tr>";
 
 echo "<tr>";
@@ -223,137 +222,134 @@ echo "<td>變速型式:".$row['turnspeed']."</td>";
 echo "</tr>";
 
 echo "<tr>";
-echo "<td>長寬高:".$row['longwidthheight']."</td>";
+echo "<td".td_color($_POST["user_9"]).">長寬高:".$row['longwidthheight']."</td>";
 echo "</tr>";
 
 echo "<tr>";
-echo "<td>牌照稅:".$row['boardcost']."</td>";
+echo "<td".td_color($_POST["user_10"]).">牌照稅:".$row['boardcost']."</td>";
 echo "</tr>";
 
 echo "<tr>";
-echo "<td>燃料稅:".$row['burncost']."</td>";
+echo "<td".td_color($_POST["user_11"]).">燃料稅:".$row['burncost']."</td>";
 echo "</tr>";
 
 echo "<tr>";
-echo "<td>銷售價:".$row['cost']."</td>";
+echo "<td".td_color($_POST["user_12"]).">售價:".$row['cost']."</td>";
 echo "</tr>";
 
 echo "<tr>";
 echo "<td>公司:".$row['company']."</td>";
 echo "</tr>";
   //echo "<img src=\"/pic/vjr.jpg\" />";
-  echo "</table>";
 }
+echo "</table>";
 
 
 }
-
 @mysql_close($conn);
 
 
 ?>
-<br><a href="javascript:goBack()" class="btn btn-lg btn-dark">回到上一頁</a>
-</div>
+<br> <a href="javascript:goBack()" class="btn btn-lg btn-dark">回到上一頁</a>
 
-<!-- Services -->
-    <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
-    <section id="services" class="services bg-primary">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-lg-10 col-lg-offset-1">
-                    <h2>Our Services</h2>
-                    <hr class="small">
-                    <div class="row">
-                        <div class="col-md-4 col-sm-6">
-                            <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-search fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    <strong>兩輪代步車種</strong>
-                                </h4>
-                                <p>我們分析的車種</p>
-                                <a href="category_list.php" class="btn btn-light">瞭解更多</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-motorcycle fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    <strong>決策支援系統</strong>
-                                </h4>
-                                <p>選擇最適合你的兩輪代步工具！</p>
-                                <a href="dss_sys.html" class="btn btn-light">瞭解更多</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-map-marker fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    <strong>附近車行</strong>
-                                </h4>
-                                <p>尋找附近車行！</p>
-                                <a href="location.html" class="btn btn-light">瞭解更多</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.row (nested) -->
-                </div>
-                <!-- /.col-lg-10 -->
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
-    </section>
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h4><strong>Wheel 2 GO!</strong>
-                    </h4>
-                    <p>3481 Melrose Place
-                        <br>Beverly Hills, CA 90210</p>
-                    <ul class="list-unstyled">
-                        <li><i class="fa fa-phone fa-fw"></i> (123) 456-7890</li>
-                        <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:name@example.com">name@example.com</a>
-                        </li>
-                    </ul>
-                    <br>
-                    <ul class="list-inline">
-                        <li>
-                            <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
-                        </li>
-                    </ul>
-                    <hr class="small">
-                    <p class="text-muted">Copyright &copy; Wheel 2 GO! 2016</p>
-                </div>
-            </div>
-        </div>
-        <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
-    </footer>
+	</div>
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+	<!-- Services -->
+	<!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
+	<section id="services" class="services bg-primary">
+		<div class="container">
+			<div class="row text-center">
+				<div class="col-lg-10 col-lg-offset-1">
+					<h2>Our Services</h2>
+					<hr class="small">
+					<div class="row">
+						<div class="col-md-4 col-sm-6">
+							<div class="service-item">
+								<span class="fa-stack fa-4x"> <i
+									class="fa fa-circle fa-stack-2x"></i> <i
+									class="fa fa-search fa-stack-1x text-primary"></i>
+								</span>
+								<h4>
+									<strong>兩輪代步車種</strong>
+								</h4>
+								<p>我們分析的車種</p>
+								<a href="category_list.php" class="btn btn-light">瞭解更多</a>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-6">
+							<div class="service-item">
+								<span class="fa-stack fa-4x"> <i
+									class="fa fa-circle fa-stack-2x"></i> <i
+									class="fa fa-motorcycle fa-stack-1x text-primary"></i>
+								</span>
+								<h4>
+									<strong>決策支援系統</strong>
+								</h4>
+								<p>選擇最適合你的兩輪代步工具！</p>
+								<a href="dss_sys.html" class="btn btn-light">瞭解更多</a>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-6">
+							<div class="service-item">
+								<span class="fa-stack fa-4x"> <i
+									class="fa fa-circle fa-stack-2x"></i> <i
+									class="fa fa-map-marker fa-stack-1x text-primary"></i>
+								</span>
+								<h4>
+									<strong>附近車行</strong>
+								</h4>
+								<p>尋找附近車行！</p>
+								<a href="location.html" class="btn btn-light">瞭解更多</a>
+							</div>
+						</div>
+					</div>
+					<!-- /.row (nested) -->
+				</div>
+				<!-- /.col-lg-10 -->
+			</div>
+			<!-- /.row -->
+		</div>
+		<!-- /.container -->
+	</section>
+	<!-- Footer -->
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 col-lg-offset-1 text-center">
+					<h4>
+						<strong>Wheel 2 GO!</strong>
+					</h4>
+					<p>
+						3481 Melrose Place <br>Beverly Hills, CA 90210
+					</p>
+					<ul class="list-unstyled">
+						<li><i class="fa fa-phone fa-fw"></i> (123) 456-7890</li>
+						<li><i class="fa fa-envelope-o fa-fw"></i> <a
+							href="mailto:name@example.com">name@example.com</a></li>
+					</ul>
+					<br>
+					<ul class="list-inline">
+						<li><a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a></li>
+						<li><a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a></li>
+						<li><a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a></li>
+					</ul>
+					<hr class="small">
+					<p class="text-muted">Copyright &copy; Wheel 2 GO! 2016</p>
+				</div>
+			</div>
+		</div>
+		<a id="to-top" href="#top" class="btn btn-dark btn-lg"><i
+			class="fa fa-chevron-up fa-fw fa-1x"></i></a>
+	</footer>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+	<!-- jQuery -->
+	<script src="js/jquery.js"></script>
 
-    <!-- Custom Theme JavaScript -->
-    <script>
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.min.js"></script>
+
+	<!-- Custom Theme JavaScript -->
+	<script>
     // Closes the sidebar menu
     $("#menu-close").click(function(e) {
         e.preventDefault();
@@ -425,12 +421,21 @@ echo "</tr>";
         // Enable map zooming with mouse scroll when the user clicks the map
     $('.map').on('click', onMapClickHandler);
     </script>
-	
+
 	<script>
     function goBack() {
     window.history.back();
 }
 
 	</script>
-  </body>
+</body>
 </html>
+<?php 
+function td_color($key) {
+    $val = "";
+    if ($key > 0) {
+        $val = " class=\"info\"";
+    }
+    return $val;
+}
+?>
